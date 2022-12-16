@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script> 
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; }
+    p { width: 200px; height: 60px; margin :20px; text-align: center; background: red; cursor: pointer; color:#fff; line-height: 60px;} 
+    img {display: block; height: auto; border-width: 10px; border-style: solid; background-color: rgb(0, 0, 0); transition-duration: 0.8s; }
+    </style>
+
+    <script>
+     $(document).ready(function(){
+        $("img").mousemove(function(event){
+            $("p:first").html(event.clientX+", " + event.clientY);
+            $("p.middle").html(event.screenX+", " + event.screenY);
+            $("p:last").html(event.pageX+", " + event.pageY);
+        });
+        
+    });
+     </script>
+</head>
+<body>
+    <section class="container">
+        <h1>마우스 개별 이벤트 메소드2</h1>
+        <article class="data">
+            <div><img src="./source/toto.jpg" id="pic1"></div>
+            <p></p>     <p class="middle"></p>     <p></p>            
+        </article>
+        <img />
+    </section><br><hr><br>
+    <div class="indata1">초기화</div>
+</body>
+</html>

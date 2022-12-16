@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 49 : 마우스 개별 이벤트</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; } 
+    img { width: 300px; height:auto; border-width:10px; border-style:solid; 
+    border-color:black; transition-duration:0.6s; }
+    </style>
+    <script>
+    $(document).ready(function(){
+       var wd0 = screen.width;
+        $(window).resize(function(){
+            var wd = $(window). width();
+            if(wd>=960 || wd==wd0){
+                $(".title").css("color","blue").css("font-size","40px");
+                $(".comment").css("color","blue").css("font-size","20px");
+                $(".img").attr("src","source/toto.jpg").width(500);
+            }   else if(wd>=768)     {
+                $(".title").css("color","green").css("font-size","36px");
+                $(".comment").css("color","green").css("font-size","18px");
+                $(".img").attr("src","source/pika.jpg").width(400);
+            }   else {
+                $(".title").css("color","red").css("font-size","34px");
+                $(".comment").css("color","red").css("font-size","16px");
+                $(".img").attr("src","source/man.png").width(300);
+            }                   
+       }).resize();
+    });    
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>마우스 개별 이벤트 메소드</h1>
+        <p>click, dblclick, mouseover, mouseout, mousedown, mouseup
+            mouseenter, mouseleave, hover, mousemove, contextmenu, wheel 등 이 있다.</p>
+        <article class="data">
+            <img src="dy2.jpg" id="pic1">
+        </article>
+        <img />
+    </section><br><hr><br>
+</body>
+</html>
