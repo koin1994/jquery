@@ -4,33 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jQuery 44 : 일회용 범용 이벤트 타겟 활용</title>
     <script src="./jquery-1.12.4.js"></script> 
     <style>
     .container { clear:both; width:1000px; margin:20px auto; } 
     .container:after { content:""; display:block; clear:both; }
     .data { clear: both; }
-    .data:after { content:""; display:block; clear:both; }
-    p { width: 200px; height: 60px; margin :20px; text-align: center; background: red; cursor: pointer; color:#fff; line-height: 60px;} 
-    img {display: block; width: 100px;}
+    .data:after { content:""; display:block; clear:both; } 
+    img { display:block; width:100px; height:auto; }
     </style>
     <script>
-     $(document).ready(function(){
-        $("img").bind("dblclick", function(event){
-            var $t = $(event.target);
-            $t.width($t.width()*1.5);
+    $(document).ready(function(){
+        //img 요소를 클릭하면, 클릭된 이미지를 2배로 커지게 하시오.(이벤트 작동은 한 번만)
+        $("img").one("click", function(event){
+            var $t = $(this);
+            $t.width($t.width()*2);
         });
-    });
-     </script>
+    });    
+    </script>
 </head>
 <body>
     <section class="container">
-        <h1>범용 이벤트 적용 메소드 - blind(),on()</h1>
+        <h1>일회용 범용 이벤트 적용 메소드 - one()</h1>
         <article class="data">
-            <img src="./source/toto.jpg" id="pic1">
+            <img src="dy1.jpg" id="pic1">
         </article>
-        <img />
     </section><br><hr><br>
-    <div class="indata1">초기화</div>
 </body>
 </html>

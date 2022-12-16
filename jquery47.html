@@ -4,37 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jQuery 47 : 범용 이벤트의 교대 수행</title>
     <script src="https://code.jquery.com/jquery-1.8.0.js"></script> 
     <style>
     .container { clear:both; width:1000px; margin:20px auto; } 
     .container:after { content:""; display:block; clear:both; }
     .data { clear: both; }
-    .data:after { content:""; display:block; clear:both; }
-    p { width: 200px; height: 60px; margin :20px; text-align: center; background: red; cursor: pointer; color:#fff; line-height: 60px;} 
-    img {display: block; height: auto; border-width: 10px; border-style: solid; background-color: rgb(0, 0, 0); transition-duration: 0.8s; }
+    .data:after { content:""; display:block; clear:both; } 
+    img { display:block; width:100px; height:auto; }
+    div { width:200px;	height:100px; line-height:100px; color:#fff; background:black; transition-duration:0.8s; text-align:center; }
     </style>
-
     <script>
-     $(document).ready(function(){
-        $("img").mousemove(function(event){
-            $("p:first").html(event.clientX+", " + event.clientY);
-            $("p.middle").html(event.screenX+", " + event.screenY);
-            $("p:last").html(event.pageX+", " + event.pageY);
-        });
-        
-    });
-     </script>
+    $(document).ready(function(){
+        //div 요소를 클릭하면, 클릭된 DIV 요소에 배경색을 딥핑크, 딥스카이블루, 그린, 검정으로 교대로 바뀔 수 있도록 하시오.
+        $("div").toggle(
+            function(evnet) { $(evnet.target).css("background","deeppink").width(400); },
+            function(evnet) { $(evnet.target).css("background","deepskyblue").width(100); },
+            function(evnet) { $(evnet.target).css("background","green").width(300); },
+            function(evnet) { $(evnet.target).css("background","black").width(200); }
+        );
+    });    
+    </script>
 </head>
 <body>
     <section class="container">
-        <h1>마우스 개별 이벤트 메소드2</h1>
+        <h1>이벤트 교대 수행 메소드 - toggle()</h1>
+        <p>jQuery version 1.9 미만에서만 작동됨</p>
         <article class="data">
-            <div><img src="./source/toto.jpg" id="pic1"></div>
-            <p></p>     <p class="middle"></p>     <p></p>            
+            <img src="dy2.jpg">
+	        <div>DIV</div>
         </article>
-        <img />
     </section><br><hr><br>
-    <div class="indata1">초기화</div>
 </body>
 </html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            clear: both;
+            width: 1000px;
+            margin: 20px auto;
+        }
+
+        .container:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .data {
+            clear: both;
+        }
+
+        .data:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #visual {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .img_box {
+            width: 2000px;
+            height: 200px;
+        }
+
+        #visual a {
+            display: block;
+            width: 200px;
+            height: 200px;
+            float: left;
+            position: relative;
+        }
+
+        #visual img {
+            display: block;
+            width: 200px;
+            height: auto;
+        }
+
+        .num {
+            display: block;
+            color: black;
+            background: #786;
+            border-radius: 20px;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            z-index: 10;
+            top: 20px;
+            left: 20px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #btn_box {
+            width: 200px;
+            height: 30px;
+            margin: 0 auto;
+        }
+
+        #btn_box a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        #btn_box .left {
+            float: left;
+        }
+
+        #btn_box .right {
+            float: right;
+        }
+
+        #num_box {
+            clear: both;
+            width: 200px;
+            margin: 20px auto;
+            height: 40px;
+        }
+
+        #num_box span {
+            display: block;
+            width: 32px;
+            height: 8px;
+            float: left;
+            color: #333;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          var len = $(".img_box a").length;
+          var wd = $("#visual").width();
+          $(".img_box a").each(function(index){
+                $(this).find(".num").text(index+1);
+                $("#num_box").append("<span>"+(index+1)+"</span>")
+          });
+          $("#btn_box .left").click(function(){
+                var ml = parseInt($(".img_box").css("margin-left"));
+                if(ml<0) {
+                    $(".img_box").not(":animated").animate({"margin-left":"+="+wd+"px"},500);
+                }    
+        });
+    });
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <article class="data">
+        <section id="visual">
+            <div class="img_box">
+                <a href>
+                    <img src="./source/pho1.png" alt="">
+                    <span class="num"></span>
+                </a>
+                <a href>
+                    <img src="./source/pho2.jpg" alt="">
+                    <span class="num"></span>
+                </a>
+                <a href>
+                    <img src="./source/pho3.jpg" alt="">
+                    <span class="num"></span>
+                </a>
+                <a href>
+                    <img src="./source/pho4.JPG" alt="">
+                    <span class="num"></span>
+                </a>
+            </div>
+        </section>
+    </article>
+</body>
+
+</html>
